@@ -20,7 +20,7 @@
       <tr>
         <td><%= payment.user.created_at %></td>
         <td><%= payment.amount %></td>
-        <td><%= payment.other_id %></td>
+        <td><%= payment.other.created_at %></td>
         <td><%= payment.description %></td>
         <td>
           <a href="/payments/<%= payment.id %>" class="btn btn-primary">Show</a>
