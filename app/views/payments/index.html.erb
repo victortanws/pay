@@ -18,9 +18,21 @@
 
       <% @payments.each do |payment| %>
       <tr>
-        <td><%= payment.user.created_at %></td>
+        <td>
+          <% if payment.user.present? %>
+            <a href="/users/<%= payment.user.id %>">
+              <%= payment.user.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= payment.amount %></td>
-        <td><%= payment.other.created_at %></td>
+        <td>
+          <% if payment.other.present? %>
+            <a href="/users/<%= payment.other.id %>">
+              <%= payment.other.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= payment.description %></td>
         <td>
           <a href="/payments/<%= payment.id %>" class="btn btn-primary">Show</a>

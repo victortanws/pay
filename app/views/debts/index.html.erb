@@ -15,7 +15,13 @@
 
       <% @debts.each do |debt| %>
       <tr>
-        <td><%= debt.user.created_at %></td>
+        <td>
+          <% if debt.user.present? %>
+            <a href="/users/<%= debt.user.id %>">
+              <%= debt.user.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/debts/<%= debt.id %>" class="btn btn-primary">Show</a>
           <a href="/debts/<%= debt.id %>/edit" class="btn btn-warning">Edit</a>
